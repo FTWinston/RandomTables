@@ -1,0 +1,223 @@
+{
+	"Patrons": {
+		"Text": "A {Gender} {Race} with a {Distinguishing feature}. Currently {Current state}, behaving {Personality}.",
+		"Properties": {
+			"Race": [
+				{"Text": "Human", "value": "8"},
+				{"Text": "Dwarf", "value": "4"},
+				{"Text": "Half-Orc", "value": "4"},
+				{"Text": "Gnome", "value": "4"},
+				{"Text": "Half-Elf", "value": "4"}
+			],
+			"Gender": [
+				{"Text": "Male", "value": "5"},
+				{"Text": "Female", "value": "4"}
+			],
+			"Current state": [
+				{"Text": "Drunk", "value": "4"},
+				{"Text": "Big winner", "value": "4"},
+				{"Text": "Big Loser", "value": "4"},
+				{"Text": "Just started", "value": "4"}
+			],
+			"Personality": [
+				{"Text": "Happy, optimistic", "value": "4"},
+				{"Text": "Angry, looking for trouble", "value": "4"},
+				{"Text": "Suspicious", "value": "4"},
+				{"Text": "Friendly, looking for a good time", "value": "4"},
+				{"Text": "Intent, curt and rude", "value": "4"},
+				{"Text": "Bored", "value": "4"}
+			],
+			"Distinguishing feature": [
+				{"Text": "Enormous piercing", "value": "4"},
+				{"Text": "Scar on their {Location}", "value": "4", "Properties": {
+					"Location": [
+						{"Text": "Cheek", "value": "4"},
+						{"Text": "Nose", "value": "4"},
+						{"Text": "Eye", "value": "4"},
+						{"Text": "Mouth", "value": "2"}
+					]
+				}}
+			]
+		}
+	},
+	"Drinks": {
+		"Text": "A {Size} of {Flavor} {Type}",
+		"Properties": {
+			"Size": [
+				{"Text": "Pint", "value": "4"},
+				{"Text": "Mug", "value": "3"},
+				{"Text": "Glass", "value": "2"},
+				{"Text": "Shot", "value": "2"}
+			],
+			"Flavor": [
+				{"Text": "Chocolate", "value": "4"},
+				{"Text": "Fruit", "value": "4"},
+				{"Text": "Vegetable", "value": "4"},
+				{"Text": "Meat", "value": "4"},
+				{"Text": "Bland", "value": "4"}
+			],
+			"Type": [
+				{"Text": "Beer", "value": "4"},
+				{"Text": "Mead", "value": "4"},
+				{"Text": "Rum", "value": "4"},
+				{"Text": "Wine", "value": "2"},
+				{"Text": "Tonic", "value": "1"}
+			]
+		}
+	},
+	"Dungeon Obstacles": {
+		"Text": "{Obstacle}",
+		"Properties": {
+			"Obstacle": [
+				{"Text": "Antilife aura with a radius of [[1d10 * 10]] ft.; while in the aura, living creatures can't regain hit points", "value": "1"},
+				{"Text": "Battering winds reduce speed by half, impose disadvantage on ranged attack rolls", "value": "1"},
+				{"Text": "Blade barrier blocks passage", "value": "1"},
+				{"Text": "Cave-in", "value": "5"},
+				{"Text": "Chasm [[1d4 * 10]] ft. wide and [[2d6 * 10]] ft. deep, possibly connected to other levels of the dungeon", "value": "4"},
+				{"Text": "Flooding leaves [[2d10]] ft. of water in the area; create nearby upward-sloping passages, raised floors, or rising stairs to contain the water", "value": "2"},
+				{"Text": "Lava flows through the area{Bridge}", "value": "1", "Properties": {
+					"Bridge": [
+						{"Text": "", "value": "1"},
+						{"Text": ", with a stone bridge crossing it", "value": "1"}
+					]
+				}},
+				{"Text": "Overgrown mushrooms block progress and must be hacked down{Hazard}", "value": "2", "Properties": {
+					"Hazard": [
+						{"Text": "", "value": "3"},
+						{"Text": " - a mold or fungus dungeon hazard is hidden among them", "value": "1"}
+					]
+				}},
+				{"Text": "Poisonous gas (deals [[1d6]] poison damage per minute of exposure)", "value": "1"},
+				{"Text": "Reverse gravity effect causes creatures to fall towards the ceiling", "value": "1"},
+				{"Text": "Wall of fire blocks passage", "value": "1"},
+				{"Text": "Wall of force blocks passage", "value": "1"}
+			]
+		}
+	},
+	"Dungeon Trick": {
+		"Properties": {
+			"Object": [
+				{"Text": "Book", "value": "1"},
+				{"Text": "Brain preserved in a jar", "value": "1"},
+				{"Text": "Burning fire", "value": "1"},
+				{"Text": "Cracked gem", "value": "1"},
+				{"Text": "Door", "value": "1"},
+				{"Text": "Fresco", "value": "1"},
+				{"Text": "Furniture", "value": "1"},
+				{"Text": "Glass sculpture", "value": "1"},
+				{"Text": "Mushroom field", "value": "1"},
+				{"Text": "Painting", "value": "1"},
+				{"Text": "Plant or tree", "value": "1"},
+				{"Text": "Pool of water", "value": "1"},
+				{"Text": "Runes engraved on wall or floor", "value": "1"},
+				{"Text": "Skull", "value": "1"},
+				{"Text": "Sphere of magical energy", "value": "1"},
+				{"Text": "Statue", "value": "1"},
+				{"Text": "Stone Obelisk", "value": "1"},
+				{"Text": "Suit of armor", "value": "1"},
+				{"Text": "Tapestry or Rug", "value": "1"},
+				{"Text": "Target Dummy", "value": "1"}
+			],
+			"Effect": [
+				{"Text": "Ages the first person to touch the object", "value": "6"},
+				{"Text": "The touched object animates, or it animates other objects nearby", "value": "3"},
+				{"Text": "Asks three skill-testing questions (if all three are answered correctly a reward appears)", "value": "4"},
+				{"Text": "Bestows resistances or vulnerability", "value": "3"},
+				{"Text": "Changes a character's alignment, personality, size, appearance, or sex when touched", "value": "3"},
+				{"Text": "Changes one substance into another, such as gold to lead or metal to brittle crystal", "value": "3"},
+				{"Text": "Creates a force field", "value": "3"},
+				{"Text": "Creates an illusion", "value": "4"},
+				{"Text": "Suppresses magic items for a time", "value": "3"},
+				{"Text": "Enlarges or reduces characters", "value": "3"},
+				{"Text": "Magic mouth speaks a riddle", "value": "3"},
+				{"Text": "Confusion (targets all creatures within 10 ft.)", "value": "3"},
+				{"Text": "Gives directions (true or false)", "value": "3"},
+				{"Text": "Grants a wish", "value": "3"},
+				{"Text": "Flies about to avoid being touched", "value": "3"},
+				{"Text": "Casts geas on the characters", "value": "3"},
+				{"Text": "Increases, reduces, negates, or reverses gravity", "value": "3"},
+				{"Text": "Induces greed", "value": "3"},
+				{"Text": "Contains an imprisoned creature", "value": "3"},
+				{"Text": "Locks or unlocks exits", "value": "3"},
+				{"Text": "Offers a game of chance, with the promise of a reward or valuable information", "value": "3"},
+				{"Text": "Helps or harms certain types of creatures", "value": "3"},
+				{"Text": "Casts polymorph on the characters (lasts 1 hour)", "value": "3"},
+				{"Text": "Presents a puzzle or riddle", "value": "4"},
+				{"Text": "Prevents movement", "value": "3"},
+				{"Text": "Releases coins, false coins, gems, false gems, a magic item, or a map", "value": "3"},
+				{"Text": "Releases, summons, or turns into a monster", "value": "3"},
+				{"Text": "Casts suggestion on the characters", "value": "3"},
+				{"Text": "Wails loudly when touched", "value": "3"},
+				{"Text": "Talks (normal speech, nonsense, poetry and rhymes, singing, spellcasting, or screaming)", "value": "3"},
+				{"Text": "Teleports characters to another place", "value": "4"},
+				{"Text": "Swaps two or more character's minds", "value": "3"}
+			]
+		}
+	},
+	"Dungeon Traps": {
+		"Text": "When {Trigger} a {Effect}. (Severity: {Severity})",
+		"Properties": {
+			"Trigger": [
+				{"Text": "Stepped on (floor, stairs)", "value": "1"},
+				{"Text": "Moved through (doorway, hallway)", "value": "1"},
+				{"Text": "Touched (doorknob, statue)", "value": "1"},
+				{"Text": "Opened (door, treasure chest)", "value": "1"},
+				{"Text": "Looked at (mural, arcane symbol)", "value": "1"},
+				{"Text": "Moved", "value": "1"}
+			],
+			"Severity": [
+				{"Text": "Setback", "value": "2"},
+				{"Text": "Dangerous", "value": "3"},
+				{"Text": "Deadly", "value": "6"}
+			],
+			"Effect": [
+				{"Text": "Magic missiles shoot from a statue or object", "value": "4"},
+				{"Text": "Collapsing staircase creates a ramp that deposits characters into a pit at its lower end`", "value": "3"},
+				{"Text": "Ceiling block falls, or entire ceiling collapses", "value": "3"},
+				{"Text": "Ceiling lowers slowly into locked room", "value": "2"},
+				{"Text": "Chute opens in floor", "value": "2"},
+				{"Text": "Clanging noise attracts nearby monsters", "value": "2"},
+				{"Text": "Touching an object triggers a disintegrate spell", "value": "3"},
+				{"Text": "Door or other object is coated with contact poison", "value": "4"},
+				{"Text": "Fire shoots out from wall, floor, or object", "value": "4"},
+				{"Text": "Touching an object triggers a flesh to stone spell", "value": "3"},
+				{"Text": "Floor collapses or is an illusion", "value": "3"},
+				{"Text": "Vent releases {Hazard} gas", "value": "3", "Properties": {
+					"Hazard": [
+						{"Text": "blinding", "value": "1"},
+						{"Text": "acidic", "value": "1"},
+						{"Text": "obscuring", "value": "1"},
+						{"Text": "paralyzing", "value": "1"},
+						{"Text": "poisonous", "value": "1"},
+						{"Text": "sleep-inducing", "value": "1"}
+					]
+				}},
+				{"Text": "Floor tiles are electrified", "value": "3"},
+				{"Text": "Glyph of warding", "value": "4"},
+				{"Text": "Huge wheeled statue rolls down corridor", "value": "3"},
+				{"Text": "Lightning bolt shoots from wall or object", "value": "3"},
+				{"Text": "Locked room floods with water or acid", "value": "3"},
+				{"Text": "Darts shoot out of an opened chest", "value": "4"},
+				{"Text": "A weapon, suit of armor, or rug animates and attacks when touched (see 'Animated objects' in the Monster Manual)", "value": "3"},
+				{"Text": "Pendulum, either bladed or weighted as a maul, swings across the room or hall", "value": "3"},
+				{"Text": "Hidden pit opens beneath characters{Hazard}", "value": "5", "Properties": {
+					"Hazard": [
+						{"Text": "", "value": "6"},
+						{"Text": " - a black pudding fills the bottom of the pit", "value": "1"},
+						{"Text": " - a gelatinous cube fills the bottom of the pit", "value": "1"}
+					]
+				}},
+				{"Text": "Hidden pit floods with acid or fire", "value": "3"},
+				{"Text": "Locking pit floods with water", "value": "3"},
+				{"Text": "Scything blade emerges from wall or object", "value": "4"},
+				{"Text": "Spears (possibly poisoned) spring out", "value": "4"},
+				{"Text": "Brittle stairs collapse over spikes", "value": "3"},
+				{"Text": "Thunderwave knocks characters into a pit or spikes", "value": "4"},
+				{"Text": "Steel or stone jaws restrain a character", "value": "3"},
+				{"Text": "Stone block smashes across hallway", "value": "3"},
+				{"Text": "Symbol", "value": "3"},
+				{"Text": "Walls slide together", "value": "3"}
+			]
+		}
+	}
+}
