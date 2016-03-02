@@ -106,10 +106,29 @@ function performCalculation(calc) {
 	return eval(calc);
 }
 
+function addLinks(tables, parent) {
+	for (var i=0; i<tables.length; i++) { // array
+		var table = tables[i]; // object
+		
+		if (parent !== undefined)
+			table.Parent = parent;
+		
+		if (table.Properties === undefined)
+			continue;
+		
+		for (var propName in table.Properties) { // object
+			var property = table.Properties[propName];
+			property.Parent = table;
+			addLinks(property, table);
+		}
+	}
+}
+
 function listTables() {
-	var output = ''
-	for (var table in tables) {
-		output += '<li>' + table + '</li>';
+	var output = '';
+	for (var i=0; i<tables.length; i++) {
+		var table = tables[i];
+		output += '<li>' + table.Name + '</li>';
 	}
 	document.getElementById('list').innerHTML = output;
 }
@@ -117,15 +136,26 @@ function listTables() {
 var tables;
 function loadData() {
 	$.getJSON('tables.json', '', function( data ) {
+		addLinks(data);
 		tables = data;
 		listTables();
 	});
 }
 
+function saveData() {
+	var json = JSON.stringify(tables, function (key,value) {
+		if (key == 'Parent')
+			return undefined;
+		return value;
+	});
+	
+	window.open('data:text/json,' + encodeURIComponent(json));
+}
+
 $(function () {
 	loadData();
 	$('#list').on('click', 'li', function () {
-		var table = tables[$(this).text()];
+		var table = tables[$(this).index()];
 		var result = selectTable(table);
 		$('#output').text(formatInstance(table, result));
 	});

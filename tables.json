@@ -1,5 +1,6 @@
-{
-	"Patrons": {
+[
+	{
+		"Name": "Patrons",
 		"Text": "A {Gender} {Race} with a {Distinguishing feature}. Currently {Current state}, behaving {Personality}.",
 		"Properties": {
 			"Race": [
@@ -40,7 +41,8 @@
 			]
 		}
 	},
-	"Drinks": {
+	{
+		"Name": "Drinks",
 		"Text": "A {Size} of {Flavor} {Type}",
 		"Properties": {
 			"Size": [
@@ -65,7 +67,8 @@
 			]
 		}
 	},
-	"Dungeon Obstacles": {
+	{
+		"Name": "Dungeon Obstacles",
 		"Text": "{Obstacle}",
 		"Properties": {
 			"Obstacle": [
@@ -94,7 +97,8 @@
 			]
 		}
 	},
-	"Dungeon Trick": {
+	{
+		"Name": "Dungeon Trick",
 		"Properties": {
 			"Object": [
 				{"Text": "Book", "value": "1"},
@@ -154,7 +158,8 @@
 			]
 		}
 	},
-	"Dungeon Traps": {
+	{
+		"Name": "Dungeon Traps",
 		"Text": "When {Trigger} a {Effect}. (Severity: {Severity})",
 		"Properties": {
 			"Trigger": [
@@ -220,4 +225,4 @@
 			]
 		}
 	}
-}
+]
