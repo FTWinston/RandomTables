@@ -15,7 +15,7 @@ function selectField(array) {
 	var numValues = 0;
 	for (var i=0; i<array.length; i++) {
 		var option = array[i];
-		numValues += option.value === undefined ? 1 : parseInt(option.value);
+		numValues += option.Value === undefined ? 1 : parseInt(option.Value);
 	}
 	
 	var selectedValue = rollArray(numValues), item;
@@ -23,7 +23,7 @@ function selectField(array) {
 	numValues = 0;
 	for (var i=0; i<array.length; i++) {
 		var option = array[i];
-		numValues += option.value === undefined ? 1 : parseInt(option.value);
+		numValues += option.Value === undefined ? 1 : parseInt(option.Value);
 		
 		if (numValues < selectedValue)
 			continue;
@@ -128,14 +128,14 @@ function listTables() {
 	var output = '';
 	for (var i=0; i<tables.length; i++) {
 		var table = tables[i];
-		output += '<li>' + table.Name + '</li>';
+		output += '<div class="table">' + table.Name + '<div class="roll link">⚄</div><div class="edit link">⚙</div></div>';
 	}
-	document.getElementById('list').innerHTML = output;
+	document.getElementById('tableList').innerHTML = output;
 }
 
-var tables;
+var tables, editTable, editProp;
 function loadData() {
-	$.getJSON('tables.json', '', function( data ) {
+	$.getJSON('tables.json', '', function (data) {
 		addLinks(data);
 		tables = data;
 		listTables();
@@ -152,11 +152,73 @@ function saveData() {
 	window.open('data:text/json,' + encodeURIComponent(json));
 }
 
+function showTableEdit(table) {
+	editTable = table;
+	if (table.Name === undefined)
+		$('#tableEdit_name').hide();
+	else
+		$('#tableEdit_name').show().val(table.Name);
+	$('#tableEdit_text').val(table.Text);
+	
+	var propOutput = '';
+	for (var prop in table.Properties) {
+		propOutput += '<li class="prop" data-prop="' + prop + '">' + prop + '<div class="edit link">⚙</div><div class="delete link">☠</div></li>';
+	}
+	$('#tableEdit_properties').html(propOutput);
+	
+	$('#propertyEdit').hide();
+	$('#tableEdit').show();
+}
+
+function showPropertyEdit(table, propName) {
+	editTable = table;
+	editProp = propName;
+	var property = table.Properties[propName];
+	
+	$('#propertyEdit_name').text('Editing the "' + propName + '" property of the "' + table.Name + '" table');
+	
+	var optOutput = '';
+	for (var i=0; i<property.length; i++) {
+		var opt = property[i];
+		optOutput += '<li class="option">' + opt.Text + ' (chance: ' + opt.Value + ')<div class="edit link">⚙</div><div class="delete link">☠</div></li>';
+	}
+	$('#propertyEdit_options').html(optOutput);
+	
+	$('#tableEdit').hide();
+	$('#propertyEdit').show();
+}
+
 $(function () {
 	loadData();
-	$('#list').on('click', 'li', function () {
-		var table = tables[$(this).index()];
+	$('#tableList').on('click', '.roll.link', function () {
+		var num = $(this).closest('.table').index();
+		var table = tables[num];
 		var result = selectTable(table);
 		$('#output').text(formatInstance(table, result));
+	}).on('click', '.edit.link', function () {
+		var num = $(this).closest('.table').index();
+		showTableEdit(tables[num]);
+	});
+	
+	$('#tableEdit_properties').on('click', '.edit.link', function () {
+		var propName = $(this).closest('.prop').attr('data-prop');
+		showPropertyEdit(editTable, propName);
+	}).on('click', '.delete.link', function () {
+		var propName = $(this).closest('.prop').attr('data-prop');
+		delete editTable.Properties[propName];
+		showTableEdit(editTable);
+	});
+	
+	$('#propertyEdit_options').on('click', '.edit.link', function () {
+		var optNum = $(this).closest('.option').index();
+		var opt = editTable.Properties[editProp][optNum];
+		console.log(editTable);
+		console.log(optNum);
+		console.log(opt);
+		showTableEdit(opt);
+	}).on('click', '.delete.link', function () {
+		var optNum = $(this).closest('.option').index();
+		editTable.Properties[editProp].splice(optNum, 1);
+		showPropertyEdit(editTable, editName);
 	});
 });

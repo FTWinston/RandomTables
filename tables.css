@@ -1,7 +1,54 @@
-#list li {
-	margin-bottom: 1em;
+#tableList {
+	font-size: 1.25em;
+}
+
+#tableList > * {
+	border: solid 1px gray;
+	margin: 0.5em;
+	padding: 1em;
+	display: inline-block;
+	border-radius: 0.5em;
+}
+
+#tableList .link, #tableEdit .link, #propertyEdit .link {
+	display: inline-block;
+	margin-left: 1em;
+	padding: 0 0.3em;
+	border: solid 1px gray;
+	cursor: pointer;
+	border-radius: 0.25em;
+	font-size: 1.25em;
 }
 
 #output {
 	white-space: pre;
+}
+
+#tableEdit, #propertyEdit {
+	position: fixed;
+	background-color: white;
+	border: solid 1px gray;
+	border-radius: 0.5em;
+	padding: 1em;
+	margin: 0 auto;
+	min-width: 400px;
+	max-width: 100%;
+}
+
+#tableEdit > *, #propertyEdit > * {
+	display: block;
+	width: 100%;
+	margin-bottom: 0.5em;
+}
+
+#tableEdit_properties, #propertyEdit_options {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#tableEdit_properties > li:not(:first-child), #propertyEdit_options > li:not(:first-child) {
+	border-top: solid 1px gray;
+	padding-top: 0.25em;
+	margin-top: 0.25em;
 }
