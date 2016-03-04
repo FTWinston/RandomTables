@@ -8,19 +8,20 @@
 	<body>
 		<div id="tableList"></div>
 		<div id="output"></div>
-		
+		<a href="#" id="addTable">add table</a>
+			
 		<div id="tableEdit" style="display:none;">
 			<input type="text" id="tableEdit_name" placeholder="Table name" />
 			<textarea id="tableEdit_text" placeholder="Display format - optional"></textarea>
 			Properties:
 			<ul id="tableEdit_properties"></ul>
-			<a href="#" id="tableEdit_addProp">add property</a>
+			<a href="#" id="tableEdit_addProp">add property</a><a href="#" id="tableEdit_back">go back</a>
 		</div>
 		
 		<div id="propertyEdit" style="display:none;">
 			<div id="propertyEdit_name"></div>
 			<ul id="propertyEdit_options"></ul>
-			<a href="#" id="propertyEdit_addOpt">add option</a>
+			<a href="#" id="propertyEdit_addOpt">add option</a><a href="#" id="propertyEdit_back">go back</a>
 		</div>
 		
 		<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>

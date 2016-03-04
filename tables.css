@@ -33,12 +33,18 @@
 	margin: 0 auto;
 	min-width: 400px;
 	max-width: 100%;
+	top: 2em; left: 2em; right: 2em; bottom: 2em;
+	overflow: scroll;
 }
 
-#tableEdit > *, #propertyEdit > * {
+#tableEdit > :not(a), #propertyEdit > :not(a) {
 	display: block;
 	width: 100%;
 	margin-bottom: 0.5em;
+}
+
+#tableEdit > a:not(:first-of-type), #propertyEdit > a:not(:first-of-type) {
+	margin-left: 1em;
 }
 
 #tableEdit_properties, #propertyEdit_options {
@@ -51,4 +57,12 @@
 	border-top: solid 1px gray;
 	padding-top: 0.25em;
 	margin-top: 0.25em;
+}
+
+#tableEdit .empty input {
+	border-color: red;
+}
+
+#propertyEdit .empty input {
+	border-color: orange;
 }
