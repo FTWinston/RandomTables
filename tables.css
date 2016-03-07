@@ -20,7 +20,7 @@
 	font-size: 1.25em;
 }
 
-#displayRoot.display #tableList .table, #tableList .link {
+#displayRoot.display #tableList .table, #tableList .link, #tableEdit_properties .link, #propertyEdit_options .link, #propertyEdit_options .optionValues {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -67,6 +67,10 @@
 	margin-top: 0.25em;
 }
 
+#tableEdit_properties input.text, #propertyEdit_options input.text {
+	width: 250px;
+}
+
 #tableEdit .empty input {
 	border-color: red;
 }
@@ -81,4 +85,39 @@
 
 #displayRoot.display #toggleMode::after {
 	content: "switch to edit mode";
+}
+
+#propertyEdit_options .optionValues {
+	margin-left: 1em;
+}
+
+#propertyEdit_options .optionValues input {
+	display: none;
+}
+
+#propertyEdit_options .optionValues label {
+	padding: .3em .6em;
+	font-weight: bold;
+	background-color: white;
+	border: solid 1px gray;
+	color: #2e6e9e;
+	cursor: pointer;
+	position: relative;
+	top: -0.2em;
+}
+
+#propertyEdit_options .optionValues label:first-of-type {
+	border-top-left-radius: 0.25em;
+	border-bottom-left-radius: 0.25em;
+}
+
+#propertyEdit_options .optionValues label:last-of-type {
+	border-top-right-radius: 0.25em;
+	border-bottom-right-radius: 0.25em;
+}
+#propertyEdit_options .optionValues label:not(:first-of-type) {
+	border-left-width: 0;
+}
+#propertyEdit_options .optionValues input:checked + label {
+	color: #e17009;
 }

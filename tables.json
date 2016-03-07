@@ -173,7 +173,7 @@
 			"Severity": [
 				{"Text": "Setback", "Value": "2"},
 				{"Text": "Dangerous", "Value": "3"},
-				{"Text": "Deadly", "Value": "6"}
+				{"Text": "Deadly", "Value": "1"}
 			],
 			"Effect": [
 				{"Text": "Magic missiles shoot from a statue or object", "Value": "4"},
