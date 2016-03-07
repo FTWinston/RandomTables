@@ -20,7 +20,7 @@ function selectField(array) {
 	
 	var selectedValue = rollArray(numValues), item;
 	
-	numValues = 0;
+	numValues = -1;
 	for (var i=0; i<array.length; i++) {
 		var option = array[i];
 		numValues += option.Value === undefined ? 1 : parseInt(option.Value);
