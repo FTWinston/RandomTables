@@ -1,4 +1,4 @@
-#tableList {
+#tableList, #output {
 	font-size: 1.25em;
 }
 
@@ -20,21 +20,29 @@
 	font-size: 1.25em;
 }
 
+#displayRoot.display #tableList .table, #tableList .link {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#displayRoot.display .link {
+	display: none;
+}
+
+#displayRoot.display #tableList .table {
+	cursor: pointer;
+}
+
 #output {
 	white-space: pre;
+	margin-top: 0.5em;
+	margin-bottom: 1em;
 }
 
 #tableEdit, #propertyEdit {
-	position: fixed;
-	background-color: white;
-	border: solid 1px gray;
-	border-radius: 0.5em;
 	padding: 1em;
-	margin: 0 auto;
-	min-width: 400px;
-	max-width: 100%;
-	top: 2em; left: 2em; right: 2em; bottom: 2em;
-	overflow: scroll;
 }
 
 #tableEdit > :not(a), #propertyEdit > :not(a) {
@@ -43,7 +51,7 @@
 	margin-bottom: 0.5em;
 }
 
-#tableEdit > a:not(:first-of-type), #propertyEdit > a:not(:first-of-type) {
+#tableEdit > a:not(:first-of-type), #propertyEdit > a:not(:first-of-type), #toggleMode {
 	margin-left: 1em;
 }
 
@@ -65,4 +73,12 @@
 
 #propertyEdit .empty input {
 	border-color: orange;
+}
+
+#toggleMode::after {
+	content: "switch to display mode";
+}
+
+#displayRoot.display #toggleMode::after {
+	content: "switch to edit mode";
 }

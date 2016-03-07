@@ -153,6 +153,7 @@ function saveData() {
 }
 
 function showTableEdit(table) {
+	$('#displayRoot').hide();
 	editTable = table;
 	if (table.Name === undefined)
 		$('#tableEdit_name').hide();
@@ -176,6 +177,7 @@ function writePropertyForTableEdit(prop) {
 }
 
 function showPropertyEdit(table, propName) {
+	$('#displayRoot').hide();
 	editTable = table;
 	editProp = propName;
 	var property = table.Properties[propName];
@@ -198,16 +200,24 @@ function writeOptionForPropertyEdit(text, value) {
 	return '<li class="option' + empty + '"><input type="text" value="' + text + '" placeholder="option value" /> (chance: ' + value + ')<div class="edit link">✎</div><div class="delete link">☠</div></li>';
 }
 
+function performRoll(tableDiv) {
+	var num = tableDiv.index();
+	var table = tables[num];
+	var result = selectTable(table);
+	$('#output').text(formatInstance(table, result));
+}
+
 $(function () {
 	loadData();
 	$('#tableList').on('click', '.roll.link', function () {
-		var num = $(this).closest('.table').index();
-		var table = tables[num];
-		var result = selectTable(table);
-		$('#output').text(formatInstance(table, result));
+		performRoll($(this).closest('.table'));
 	}).on('click', '.edit.link', function () {
 		var num = $(this).closest('.table').index();
 		showTableEdit(tables[num]);
+	}).on('click', '.table', function () {
+		if (!$('#displayRoot').hasClass('display'))
+			return;
+		performRoll($(this));
 	});
 	
 	$('#tableEdit_text').change(function () {
@@ -247,7 +257,7 @@ $(function () {
 	}).on('click', '.delete.link', function () {
 		var optNum = $(this).closest('.option').index();
 		editTable.Properties[editProp].splice(optNum, 1);
-		showPropertyEdit(editTable, editName);
+		showPropertyEdit(editTable, editProp);
 	}).on('change', 'li input:first-child', function () {
 		var optNum = $(this).closest('.option').index();
 		var text = $(this).val();
@@ -279,11 +289,17 @@ $(function () {
 			showTableEdit(editTable.Parent);
 		else {
 			$('#tableEdit').hide();
+			listTables();
+			$('#displayRoot').show();
 			editTable = editProp = null;
 		}
 	});
 	
 	$('#propertyEdit_back').click(function () {
 		showTableEdit(editTable);
+	});
+	
+	$('#toggleMode').click(function () {
+		$('#displayRoot').toggleClass('display');
 	});
 });
