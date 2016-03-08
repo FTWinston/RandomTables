@@ -27,12 +27,16 @@
 	user-select: none;
 }
 
-#displayRoot.display .link {
+#displayRoot.display .link, #displayRoot.display #addTable {
 	display: none;
 }
 
 #displayRoot.display #tableList .table {
 	cursor: pointer;
+}
+
+#addTable {
+	margin-right: 1em;
 }
 
 #output {
@@ -51,7 +55,7 @@
 	margin-bottom: 0.5em;
 }
 
-#tableEdit > a:not(:first-of-type), #propertyEdit > a:not(:first-of-type), #toggleMode {
+#tableEdit > a:not(:first-of-type), #propertyEdit > a:not(:first-of-type) {
 	margin-left: 1em;
 }
 
@@ -68,7 +72,10 @@
 }
 
 #tableEdit_properties input.text, #propertyEdit_options input.text {
-	width: 250px;
+	width: 300px;
+	height: 1.75em;
+	position: relative;
+	top: -0.35em;
 }
 
 #tableEdit .empty input {
