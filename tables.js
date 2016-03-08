@@ -128,7 +128,7 @@ function listTables() {
 	var output = '';
 	for (var i=0; i<tables.length; i++) {
 		var table = tables[i];
-		output += '<div class="table">' + table.Name + '<div class="roll link">⚄</div><div class="edit link">✎</div></div>';
+		output += '<div class="table">' + table.Name + '<div class="roll link">⚄</div><div class="edit link">✎</div><div class="delete link">☠</div></div>';
 	}
 	document.getElementById('tableList').innerHTML = output;
 }
@@ -205,7 +205,7 @@ function writeOptionForPropertyEdit(text, value, num) {
 			output += 'checked ';
 		output += '/><label for="' + id + '">' + i + '</label>';
 	}
-	output += ' <input type="text" id="opt' + num + '_other" class="number" placeholder="other" ';
+	output += '<input type="text" id="opt' + num + '_other" class="number" placeholder="other" ';
 	if (value > 10)
 		output += 'value="' + value + '" ';
 	output += '/></span><div class="edit link">✎</div><div class="delete link">☠</div></li>';
@@ -228,6 +228,14 @@ $(function () {
 		var num = $(this).closest('.table').index();
 		showTableEdit(tables[num]);
 		return false;
+	})
+	.on('click', '.delete.link', function () {
+		var num = $(this).closest('.table').index();
+		if (!confirm('Remove the "' + tables[num].Name + '" table?'))
+			return false;
+		tables.splice(num, 1);
+		listTables();
+		return false;
 	}).on('click', '.table', function () {
 		if (!$('#displayRoot').hasClass('display'))
 			return;
@@ -245,6 +253,8 @@ $(function () {
 		return false;
 	}).on('click', '.delete.link', function () {
 		var propName = $(this).closest('.prop').attr('data-prop');
+		if (!confirm('Remove the "' + propName + '" property?'))
+			return false;
 		delete editTable.Properties[propName];
 		showTableEdit(editTable);
 		return false;
@@ -273,7 +283,12 @@ $(function () {
 		showTableEdit(opt);
 		return false;
 	}).on('click', '.delete.link', function () {
-		var optNum = $(this).closest('.option').index();
+		var option = $(this).closest('.option');
+		var name = option.find('input.text').val();
+		if (!confirm('Remove the "' + name + '" option?'))
+			return false;
+		
+		var optNum = option.index();
 		editTable.Properties[editProp].splice(optNum, 1);
 		showPropertyEdit(editTable, editProp);
 		return false;
@@ -322,8 +337,12 @@ $(function () {
 	});
 	
 	$('#tableEdit_back').click(function () {
-		if (editTable.Parent !== undefined)
-			showTableEdit(editTable.Parent);
+		if (editTable.Parent !== undefined) {
+			if (editProp !== null)
+				showPropertyEdit(editTable.Parent, editProp);
+			else
+				showTableEdit(editTable.Parent);
+		}
 		else {
 			$('#tableEdit').hide();
 			listTables();
@@ -334,6 +353,7 @@ $(function () {
 	});
 	
 	$('#propertyEdit_back').click(function () {
+		editProp = null;
 		showTableEdit(editTable);
 		return false;
 	});

@@ -15,8 +15,9 @@
 		</div>
 		
 		<div id="tableEdit" style="display:none;">
-			<input type="text" id="tableEdit_name" placeholder="Table name" />
+			<input type="text" id="tableEdit_name" placeholder="Table name - mandatory" />
 			<textarea id="tableEdit_text" placeholder="Display format - optional"></textarea>
+			<p>When writing the result of a roll, a property name inside curly brackets will be replaced with the randomly chosen result for that property, e.g. <em>{Something}</em>.<br/>A mathematical expression inside two sets of square brackets will be calculated, e.g. <em>[[2d6 + 5]]</em>.<br />Combine these with text to write generated output in natural language.</p>
 			Properties:
 			<ul id="tableEdit_properties"></ul>
 			<a href="#" id="tableEdit_addProp">add property</a><a href="#" id="tableEdit_back">go back</a>
