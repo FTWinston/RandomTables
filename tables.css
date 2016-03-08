@@ -73,9 +73,17 @@
 
 #tableEdit_properties input.text, #propertyEdit_options input.text {
 	width: 300px;
-	height: 1.75em;
+	height: 1.7em;
 	position: relative;
 	top: -0.35em;
+}
+
+#propertyEdit_options input.number {
+	width: 40px;
+	height: 1.7em;
+	position: relative;
+	top: -0.35em;
+	text-align: center;
 }
 
 #tableEdit .empty input {
@@ -98,7 +106,7 @@
 	margin-left: 1em;
 }
 
-#propertyEdit_options .optionValues input {
+#propertyEdit_options .optionValues input[type="radio"] {
 	display: none;
 }
 
@@ -125,6 +133,7 @@
 #propertyEdit_options .optionValues label:not(:first-of-type) {
 	border-left-width: 0;
 }
-#propertyEdit_options .optionValues input:checked + label {
+#propertyEdit_options .optionValues input:checked + label, #propertyEdit_options .optionValues input[type="text"] {
 	color: #e17009;
+	font-weight: bold;
 }

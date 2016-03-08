@@ -205,7 +205,10 @@ function writeOptionForPropertyEdit(text, value, num) {
 			output += 'checked ';
 		output += '/><label for="' + id + '">' + i + '</label>';
 	}
-	output += '</span><div class="edit link">✎</div><div class="delete link">☠</div></li>';
+	output += ' <input type="text" id="opt' + num + '_other" class="number" placeholder="other" ';
+	if (value > 10)
+		output += 'value="' + value + '" ';
+	output += '/></span><div class="edit link">✎</div><div class="delete link">☠</div></li>';
 	return output;
 }
 
@@ -280,11 +283,21 @@ $(function () {
 		editTable.Properties[editProp][optNum].Text = text;
 		$(this).closest('li').toggleClass('empty', text.trim() == '');
 	}).on('change', '.optionValues input', function () {
-		if (!$(this).prop('checked'))
-			return;
+		if ($(this).attr('type') == 'radio') {
+			if (!$(this).prop('checked'))
+				return;
+			
+			$(this).siblings('input.number').val('');
+		}
+		else {
+			$(this).siblings('input[type="radio"]').prop('checked', false);
+		}
 		
 		var optNum = $(this).closest('.option').index();
 		editTable.Properties[editProp][optNum].Value = $(this).val().toString();
+	}).on('keypress', 'li input.number', function (e) {
+		console.log(e.which)
+		return (e.which >= 48 && e.which <= 57) || e.which < 31;
 	});
 	
 	$('#addTable').click(function () {
