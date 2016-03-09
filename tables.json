@@ -1,47 +1,5 @@
 [
 	{
-		"Name": "Patrons",
-		"Text": "A {Gender} {Race} with a {Distinguishing feature}. Currently {Current state}, behaving {Personality}.",
-		"Properties": {
-			"Race": [
-				{"Text": "Human", "Value": "8"},
-				{"Text": "Dwarf", "Value": "4"},
-				{"Text": "Half-Orc", "Value": "4"},
-				{"Text": "Gnome", "Value": "4"},
-				{"Text": "Half-Elf", "Value": "4"}
-			],
-			"Gender": [
-				{"Text": "Male", "Value": "5"},
-				{"Text": "Female", "Value": "4"}
-			],
-			"Current state": [
-				{"Text": "Drunk", "Value": "4"},
-				{"Text": "Big winner", "Value": "4"},
-				{"Text": "Big Loser", "Value": "4"},
-				{"Text": "Just started", "Value": "4"}
-			],
-			"Personality": [
-				{"Text": "Happy, optimistic", "Value": "4"},
-				{"Text": "Angry, looking for trouble", "Value": "4"},
-				{"Text": "Suspicious", "Value": "4"},
-				{"Text": "Friendly, looking for a good time", "Value": "4"},
-				{"Text": "Intent, curt and rude", "Value": "4"},
-				{"Text": "Bored", "Value": "4"}
-			],
-			"Distinguishing feature": [
-				{"Text": "Enormous piercing", "Value": "4"},
-				{"Text": "Scar on their {Location}", "Value": "4", "Properties": {
-					"Location": [
-						{"Text": "Cheek", "Value": "4"},
-						{"Text": "Nose", "Value": "4"},
-						{"Text": "Eye", "Value": "4"},
-						{"Text": "Mouth", "Value": "2"}
-					]
-				}}
-			]
-		}
-	},
-	{
 		"Name": "Drinks",
 		"Text": "A {Size} of {Flavor} {Type}",
 		"Properties": {
@@ -366,6 +324,193 @@
 				{"Text": "Wax blob (candle stub)", "Value": "1"},
 				{"Text": "Wax drippings", "Value": "1"},
 				{"Text": "Wood pieces, rotting", "Value": "3"}
+			]
+		}
+	},
+	{
+		"Name": "NPCs",
+		"Properties": {
+			"Appearance": [
+				{"Text": "Distinctive jewelery: earrings, necklace, circlet, bracelets", "Value": "1"},
+				{"Text": "Piercings", "Value": "1"},
+				{"Text": "Flamboyant or outlandish clothes", "Value": "1"},
+				{"Text": "Formal, clean clothes", "Value": "1"},
+				{"Text": "Ragged, dirty clothes", "Value": "1"},
+				{"Text": "Pronounced scar", "Value": "1"},
+				{"Text": "Missing teeth", "Value": "1"},
+				{"Text": "Missing fingers", "Value": "1"},
+				{"Text": "Unusual eye color (or two different colors)", "Value": "1"},
+				{"Text": "Tattoos", "Value": "1"},
+				{"Text": "Birthmark", "Value": "1"},
+				{"Text": "Unusual skin color", "Value": "1"},
+				{"Text": "Bald", "Value": "1"},
+				{"Text": "Braided beard or hair", "Value": "1"},
+				{"Text": "Unusual hair color", "Value": "1"},
+				{"Text": "Nervous eye twitch", "Value": "1"},
+				{"Text": "Distinctive posture (crooked or rigid)", "Value": "1"},
+				{"Text": "Exceptionally beautiful", "Value": "1"},
+				{"Text": "Exceptionally ugly", "Value": "1"}
+			],
+			"High": [
+				{"Text": "Strength - powerful, brawny, strong as an ox", "Value": "1"},
+				{"Text": "Dexterity - lithe, agile, graceful", "Value": "1"},
+				{"Text": "Constitution - hardy, hale, healthy", "Value": "1"},
+				{"Text": "Intelligence - studious, learned, inquisitive", "Value": "1"},
+				{"Text": "Wisdom - perceptive, spiritual, insightful", "Value": "1"},
+				{"Text": "Charisma - persuasive, forceful, born leader", "Value": "1"}
+			],
+			"Low": [
+				{"Text": "Strength - feeble, scrawny", "Value": "1"},
+				{"Text": "Dexterity - clumsy, fumbling", "Value": "1"},
+				{"Text": "Constitution - sickly, pale", "Value": "1"},
+				{"Text": "Intelligence - dim-witted, slow", "Value": "1"},
+				{"Text": "Wisdom - oblivious, absentminded", "Value": "1"},
+				{"Text": "Charisma - dull, boring", "Value": "1"}
+			],
+			"Talent": [
+				{"Text": "Plays a musical instrument", "Value": "1"},
+				{"Text": "Speaks several languages fluently", "Value": "1"},
+				{"Text": "Unbelievably lucky", "Value": "1"},
+				{"Text": "Perfect memory", "Value": "1"},
+				{"Text": "Great with animals", "Value": "1"},
+				{"Text": "Great with children", "Value": "1"},
+				{"Text": "Great at solving puzzles", "Value": "1"},
+				{"Text": "Great at one game", "Value": "1"},
+				{"Text": "Great at impersonations", "Value": "1"},
+				{"Text": "Draws beautifully", "Value": "1"},
+				{"Text": "Paints beautifully", "Value": "1"},
+				{"Text": "Sings beautifully", "Value": "1"},
+				{"Text": "Drinks everyone under the table", "Value": "1"},
+				{"Text": "Expert carpenter", "Value": "1"},
+				{"Text": "Expert cook", "Value": "1"},
+				{"Text": "Expert dart thrower & rock skipper", "Value": "1"},
+				{"Text": "Expert juggler", "Value": "1"},
+				{"Text": "Skilled actor and master of disguise", "Value": "1"},
+				{"Text": "Skilled dancer", "Value": "1"},
+				{"Text": "Knows thieves' cant", "Value": "1"}
+			],
+			"Mannerism": [
+				{"Text": "Prone to singing, whistling, or humming quietly", "Value": "1"},
+				{"Text": "Speaks in rhyme or some other peculiar way", "Value": "1"},
+				{"Text": "Particularly low or high voice", "Value": "1"},
+				{"Text": "Slurs words, lisps, or stutters", "Value": "1"},
+				{"Text": "Enunciates overly clearly", "Value": "1"},
+				{"Text": "Speaks loudly", "Value": "1"},
+				{"Text": "Whispers", "Value": "1"},
+				{"Text": "Uses flowery speech or long words", "Value": "1"},
+				{"Text": "Frequently uses the wrong word", "Value": "1"},
+				{"Text": "Uses colorful oaths and exclamations", "Value": "1"},
+				{"Text": "Makes constant jokes or puns", "Value": "1"},
+				{"Text": "Prone to predictions of doom", "Value": "1"},
+				{"Text": "Fidgets", "Value": "1"},
+				{"Text": "Squints", "Value": "1"},
+				{"Text": "Stares into the distance", "Value": "1"},
+				{"Text": "Chews something", "Value": "1"},
+				{"Text": "Paces", "Value": "1"},
+				{"Text": "Taps fingers", "Value": "1"},
+				{"Text": "Bites fingernails", "Value": "1"},
+				{"Text": "Twirls hair or tugs beard", "Value": "1"}
+			],
+			"Interaction": [
+				{"Text": "Argumentative", "Value": "1"},
+				{"Text": "Arrogant", "Value": "1"},
+				{"Text": "Blustering", "Value": "1"},
+				{"Text": "Rude", "Value": "1"},
+				{"Text": "Curious", "Value": "1"},
+				{"Text": "Friendly", "Value": "1"},
+				{"Text": "Honest", "Value": "1"},
+				{"Text": "Hot tempered", "Value": "1"},
+				{"Text": "Irritable", "Value": "1"},
+				{"Text": "Ponderous", "Value": "1"},
+				{"Text": "Quiet", "Value": "1"},
+				{"Text": "Suspicious", "Value": "1"}
+			],
+			"Ideal": [
+				{"Text": "Beauty", "Value": "1"},
+				{"Text": "Charity", "Value": "1"},
+				{"Text": "Greater good", "Value": "1"},
+				{"Text": "Life", "Value": "1"},
+				{"Text": "Respect", "Value": "1"},
+				{"Text": "Self-sacrifice", "Value": "1"},
+				{"Text": "Domination", "Value": "1"},
+				{"Text": "Greed", "Value": "1"},
+				{"Text": "Might", "Value": "1"},
+				{"Text": "Pain", "Value": "1"},
+				{"Text": "Retribution", "Value": "1"},
+				{"Text": "Slaughter", "Value": "1"},
+				{"Text": "Community", "Value": "1"},
+				{"Text": "Fairness", "Value": "1"},
+				{"Text": "Honor", "Value": "1"},
+				{"Text": "Logic", "Value": "1"},
+				{"Text": "Responsibility", "Value": "1"},
+				{"Text": "Tradition", "Value": "1"},
+				{"Text": "Change", "Value": "1"},
+				{"Text": "Creativity", "Value": "1"},
+				{"Text": "Freedom", "Value": "1"},
+				{"Text": "Independence", "Value": "1"},
+				{"Text": "No limits", "Value": "1"},
+				{"Text": "Whimsy", "Value": "1"},
+				{"Text": "Balance", "Value": "1"},
+				{"Text": "Knowledge", "Value": "1"},
+				{"Text": "Live and let live", "Value": "1"},
+				{"Text": "Moderation", "Value": "1"},
+				{"Text": "Neutrality", "Value": "1"},
+				{"Text": "People", "Value": "1"},
+				{"Text": "Aspiration", "Value": "1"},
+				{"Text": "Discovery", "Value": "1"},
+				{"Text": "Glory", "Value": "1"},
+				{"Text": "Nation", "Value": "1"},
+				{"Text": "Redemption", "Value": "1"},
+				{"Text": "Self-knowing", "Value": "1"}
+			],
+			"Bond": [
+				{"Text": "Dedicated to fulfill a personal goal", "Value": "1"},
+				{"Text": "Protective of close family members", "Value": "1"},
+				{"Text": "Protective of colleagues or compatriots", "Value": "1"},
+				{"Text": "Loyal to a benefactor, patron or employer", "Value": "1"},
+				{"Text": "Captivated by a romantic interest", "Value": "1"},
+				{"Text": "Drawn to a special place", "Value": "1"},
+				{"Text": "Protective of sentimental keepsake", "Value": "1"},
+				{"Text": "Protective of valuable possession", "Value": "1"},
+				{"Text": "Out for revenge", "Value": "1"},
+				{"Text": "{First} and {Second}", "Value": "1", "Properties": {
+					"First": [
+						{"Text": "Dedicated to fulfill a personal goal", "Value": "1"},
+						{"Text": "Protective of close family members", "Value": "1"},
+						{"Text": "Protective of colleagues or compatriots", "Value": "1"},
+						{"Text": "Loyal to a benefactor, patron or employer", "Value": "1"},
+						{"Text": "Captivated by a romantic interest", "Value": "1"},
+						{"Text": "Drawn to a special place", "Value": "1"},
+						{"Text": "Protective of sentimental keepsake", "Value": "1"},
+						{"Text": "Protective of valuable possession", "Value": "1"},
+						{"Text": "Out for revenge", "Value": "1"}
+					],
+					"Second": [
+						{"Text": "Dedicated to fulfill a personal goal", "Value": "1"},
+						{"Text": "Protective of close family members", "Value": "1"},
+						{"Text": "Protective of colleagues or compatriots", "Value": "1"},
+						{"Text": "Loyal to a benefactor, patron or employer", "Value": "1"},
+						{"Text": "Captivated by a romantic interest", "Value": "1"},
+						{"Text": "Drawn to a special place", "Value": "1"},
+						{"Text": "Protective of sentimental keepsake", "Value": "1"},
+						{"Text": "Protective of valuable possession", "Value": "1"},
+						{"Text": "Out for revenge", "Value": "1"}
+					]
+				}}
+			],
+			"Flaw/Secret": [
+				{"Text": "Forbidden love or susceptibility to romance", "Value": "1"},
+				{"Text": "Enjoys decadent pleasure", "Value": "1"},
+				{"Text": "Arrogance", "Value": "1"},
+				{"Text": "Envies another creature's possessions or station", "Value": "1"},
+				{"Text": "Overpowering greed", "Value": "1"},
+				{"Text": "Prone to rage", "Value": "1"},
+				{"Text": "Has powerful enemy", "Value": "1"},
+				{"Text": "Specific phobia", "Value": "1"},
+				{"Text": "Shameful or scandalous history", "Value": "1"},
+				{"Text": "Secret crime or misdeed", "Value": "1"},
+				{"Text": "Possession of forbidden lore", "Value": "1"},
+				{"Text": "Foolhardy bravery", "Value": "1"}
 			]
 		}
 	}
