@@ -147,6 +147,6 @@
 	border-left-width: 0;
 }
 
-#propertyEdit_options .optionValues input:checked + label, #propertyEdit_options .optionValues input.number {
+#propertyEdit_options .optionValues input:checked + label, #propertyEdit_options .optionValues input.number, #propertyEdit_options li.table .link.edit {
 	color: #e17009;
 }
