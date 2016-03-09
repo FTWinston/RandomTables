@@ -134,11 +134,28 @@ function listTables() {
 }
 
 var tables, editTable, editProp;
-function loadData() {
-	$.getJSON('tables.json', '', function (data) {
+function loadData(url) {
+	url = url.replace('gist.github.com', 'gist.githubusercontent.com');
+	
+	if (url.indexOf('gist.githubusercontent.com') != -1 ) {
+		if (url.charAt(url.length - 1) != '/');
+			url += '/';
+		
+		var suffix = 'raw/';
+		if (url.substr(-suffix.length) !== suffix)
+			url += 'raw';
+	}
+	
+	if (url.indexOf('://') == -1) {
+		url = 'http://' + url;
+	}
+	
+	$.getJSON(url, '', function (data) {
 		addLinks(data);
 		tables = data;
 		listTables();
+		$('#intro').hide();
+		$('#displayRoot').show();
 	});
 }
 
@@ -147,7 +164,7 @@ function saveData() {
 		if (key == 'Parent')
 			return undefined;
 		return value;
-	});
+	}, '	');
 	
 	window.open('data:text/json,' + encodeURIComponent(json));
 }
@@ -229,8 +246,40 @@ function performRoll(tableDiv) {
 	$('#output').text(formatInstance(table, result));
 }
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
 $(function () {
-	loadData();
+	$('#loadUrl').click(function () {
+		var url = $('#dataUrl').val();
+		loadData(url);
+		return false;
+	});
+	
+	$('#saveTables').click(function () {
+		saveData();
+		return false;
+	});
+	
+	$('#closeTables').click(function () {
+		if (!confirm('Discard all changes?'))
+			return false;
+		
+		var pos = document.location.href.indexOf('?');
+		if (pos == -1)
+			document.location.reload();
+		else
+			document.location.href = document.location.href.substr(0, pos);
+		return false;
+	});
+	
 	$('#tableList').on('click', '.roll.link', function () {
 		performRoll($(this).closest('.table'));
 		return false;
@@ -329,9 +378,13 @@ $(function () {
 		return (e.which >= 48 && e.which <= 57) || e.which < 31;
 	});
 	
-	$('#addTable').click(function () {
+	$('#addTable, #createNew').click(function () {
+		if (tables === undefined)
+			tables = [];
+		
 		var table = { Name: '', Text: '', "Properties": {} };
 		tables.push(table);
+		$('#intro').hide();
 		showTableEdit(table);
 		return false;
 	});
@@ -358,8 +411,8 @@ $(function () {
 				showTableEdit(editTable.Parent);
 		}
 		else {
-			$('#tableEdit').hide();
 			listTables();
+			$('#tableEdit').hide();
 			$('#displayRoot').show();
 			editTable = editProp = null;
 		}
@@ -376,4 +429,8 @@ $(function () {
 		$('#displayRoot').toggleClass('display');
 		return false;
 	});
+	
+	var queryUrl = getParameterByName('source');
+	if (queryUrl != null)
+		loadData(queryUrl);
 });

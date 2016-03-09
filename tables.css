@@ -31,7 +31,7 @@
 	user-select: none;
 }
 
-#displayRoot.display .link, #displayRoot.display #addTable {
+#displayRoot.display .link, #displayRoot.display #addTable, #displayRoot.display #saveTables, #displayRoot.display #closeTables {
 	display: none;
 }
 
@@ -39,7 +39,7 @@
 	cursor: pointer;
 }
 
-#addTable {
+#addTable, #saveTables, #closeTables {
 	margin-right: 1em;
 }
 
@@ -149,4 +149,8 @@
 
 #propertyEdit_options .optionValues input:checked + label, #propertyEdit_options .optionValues input.number, #propertyEdit_options li.table .link.edit {
 	color: #e17009;
+}
+
+#dataUrl {
+	width: 400px;
 }

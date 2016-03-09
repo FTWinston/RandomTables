@@ -7,10 +7,19 @@
 	</head>
 	
 	<body>
-		<div id="displayRoot">
+		<div id="intro">
+			<p>Random Tables is a tool that lets you easily create and use tables of random data.</p>
+			<p>You can <a href="#" id="createNew">create new tables</a> or load an existing set by entering a URL below:
+			<p><input type="text" id="dataUrl" /> <a href="#" id="loadUrl">load</a></p>
+			<p>This can be the URL of a Github Gist, or of a raw JSON file. <a href="?source=https://gist.github.com/FTWinston/7b353d1cc2f16bb25910">Click here</a> to load some example data.</p>
+		</div>
+		
+		<div id="displayRoot" style="display:none;">
 			<div id="tableList"></div>
 			<div id="output"></div>
 			<a href="#" id="addTable">add table</a>
+			<a href="#" id="saveTables">save tables</a>
+			<a href="#" id="closeTables">close tables</a>
 			<a href="#" id="toggleMode"></a>
 		</div>
 		
