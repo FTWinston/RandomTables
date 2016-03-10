@@ -88,11 +88,7 @@
 }
 
 #tableEdit .empty input {
-	border-color: red;
-}
-
-#propertyEdit .empty input {
-	border-color: orange;
+	border: solid 1px red;
 }
 
 #toggleMode::after {

@@ -179,7 +179,7 @@ function showTableEdit(table) {
 	$('#tableEdit_text').val(table.Text);
 	
 	if (table.Properties === undefined)
-		table.Properties = [];
+		table.Properties = {};
 	
 	var propOutput = '';
 	for (var prop in table.Properties) {
@@ -302,8 +302,16 @@ $(function () {
 		return false;
 	});
 	
+	$('#tableEdit_name').change(function () {
+		editTable.Name = $(this).val().trim();
+	});
+	
 	$('#tableEdit_text').change(function () {
-		editTable.Text = $(this).val();
+		var val = $(this).val().trim();
+		if (val == '')
+			delete editTable.Text;
+		else
+			editTable.Text = val;
 	});
 	
 	$('#tableEdit_properties').on('click', '.edit.link', function () {
@@ -344,6 +352,7 @@ $(function () {
 		
 		var optNum = option.index();
 		var opt = editTable.Properties[editProp][optNum];
+		opt.Parent = editTable;
 		showTableEdit(opt);
 		return false;
 	}).on('click', '.delete.link', function () {
