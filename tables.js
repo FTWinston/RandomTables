@@ -128,7 +128,7 @@ function listTables() {
 	var output = '';
 	for (var i=0; i<tables.length; i++) {
 		var table = tables[i];
-		output += '<div class="table">' + table.Name + '<div class="roll link">⚄</div><div class="edit link">✎</div><div class="delete link">☠</div></div>';
+		output += '<div class="table">' + table.Name + '<div class="roll link" tabindex="0">⚄</div><div class="edit link" tabindex="0">✎</div><div class="delete link" tabindex="0">☠</div></div>';
 	}
 	document.getElementById('tableList').innerHTML = output;
 }
@@ -185,6 +185,9 @@ function showTableEdit(table) {
 	for (var prop in table.Properties) {
 		propOutput += writePropertyForTableEdit(prop);
 	}
+	if(propOutput == '')
+		propOutput += writePropertyForTableEdit('');
+	
 	$('#tableEdit_properties').html(propOutput);
 	
 	$('#propertyEdit').hide();
@@ -193,7 +196,7 @@ function showTableEdit(table) {
 
 function writePropertyForTableEdit(prop) {
 	var empty = prop.trim() == '' ? ' empty' : '';
-	return '<li class="prop' + empty + '" data-prop="' + prop + '"><input type="text" value="' + prop + '" placeholder="property name" class="text" /><div class="edit link">✎</div><div class="delete link">☠</div></li>';
+	return '<li class="prop' + empty + '" data-prop="' + prop + '"><input type="text" value="' + prop + '" placeholder="property name" class="text" /><div class="edit link" tabindex="0">✎</div><div class="delete link" tabindex="0">☠</div></li>';
 }
 
 function showPropertyEdit(table, propName) {
@@ -232,10 +235,10 @@ function writeOptionForPropertyEdit(text, value, num, isTable) {
 			output += 'checked ';
 		output += '/><label for="' + id + '">' + i + '</label>';
 	}
-	output += '<input type="text" id="opt' + num + '_other" class="number" placeholder="other" ';
+	output += '<input type="text" id="opt' + num + '_other" class="number" placeholder="other" tabindex="-1" ';
 	if (value > 10)
 		output += 'value="' + value + '" ';
-	output += '/></span><div class="edit link">✎</div><div class="delete link">☠</div></li>';
+	output += '/></span><div class="edit link" tabindex="0">✎</div><div class="delete link" tabindex="0">☠</div></li>';
 	return output;
 }
 
@@ -320,7 +323,7 @@ $(function () {
 		return false;
 	}).on('click', '.delete.link', function () {
 		var propName = $(this).closest('.prop').attr('data-prop');
-		if (!confirm('Remove the "' + propName + '" property?'))
+		if (propName != '' && !confirm('Remove the "' + propName + '" property?'))
 			return false;
 		delete editTable.Properties[propName];
 		showTableEdit(editTable);
@@ -358,7 +361,7 @@ $(function () {
 	}).on('click', '.delete.link', function () {
 		var option = $(this).closest('.option');
 		var name = option.find('input.text').val();
-		if (!confirm('Remove the "' + name + '" option?'))
+		if (name != '' && !confirm('Remove the "' + name + '" option?'))
 			return false;
 		
 		var optNum = option.index();
@@ -438,6 +441,41 @@ $(function () {
 		$('#displayRoot').toggleClass('display');
 		return false;
 	});
+	
+	$('#tableList, #tableEdit, #propertyEdit').on('keypress', '.link:focus', function(e) {
+		if (e.keyCode == 13)
+			$(this).click();
+	});
+	
+	$('#tableEdit_properties, #propertyEdit_options').on('keypress', 'input.text', function(e) {
+		if (e.keyCode == 13 && !moveDown(this))
+			$(this).closest('ul').next('a.addNew').click();
+	});
+	
+	$('#tableEdit_properties, #propertyEdit_options').on('keyup', 'input.text', function(e) {
+		if (e.keyCode == 40)
+			moveDown(this);
+		else if (e.keyCode == 38)
+			moveUp(this);
+	});
+	
+	function moveDown(fromElement) {
+		var to = $(fromElement).closest('li').next('li').find('input.text').first();
+		if (to.length == 0)
+			return false;
+		
+		to.focus().select();
+		return true;
+	}
+	
+	function moveUp(fromElement) {
+		var to = $(fromElement).closest('li').prev('li').find('input.text').first();
+		if (to.length == 0)
+			return false;
+		
+		to.focus().select();
+		return true;
+	}
 	
 	var queryUrl = getParameterByName('source');
 	if (queryUrl != null)
