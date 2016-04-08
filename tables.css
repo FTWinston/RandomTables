@@ -150,3 +150,8 @@
 #dataUrl {
 	width: 400px;
 }
+
+#saveScreen_text {
+	width: 100%;
+	min-height: 40em;
+}

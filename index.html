@@ -20,7 +20,7 @@
 			<div id="output"></div>
 			<a href="#" id="addTable">add table</a>
 			<a href="#" id="saveTables">save tables</a>
-			<a href="#" id="closeTables">close tables</a>
+			<a href="#" id="closeTables">close</a>
 			<a href="#" id="toggleMode"></a>
 		</div>
 		
@@ -37,6 +37,12 @@
 			<div id="propertyEdit_name"></div>
 			<ul id="propertyEdit_options"></ul>
 			<a href="#" id="propertyEdit_addOpt" class="addNew">add option</a><a href="#" id="propertyEdit_back">go back</a>
+		</div>
+		
+		<div id="saveScreen" style="display:none;">
+			<p>Copy the text below and paste it into a <a href="https://gist.github.com" target="_blank">github gist</a>, giving it a filename ending in <em>.json</em>. Load it again later by entering the URL on the <a href="#" id="closeTables2">welcome page</a>.</p>
+			<p>When you're done, go <a href="#" id="saveScreen_done">back to your tables</a>.</p>
+			<textarea id="saveScreen_text" readonly></textarea>
 		</div>
 		
 		<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>

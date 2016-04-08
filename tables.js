@@ -166,7 +166,9 @@ function saveData() {
 		return value;
 	}, '	');
 	
-	window.open('data:text/json,' + encodeURIComponent(json));
+	$('#displayRoot').hide();
+	$('#saveScreen').show();
+	$('#saveScreen_text').val(json).focus().select();
 }
 
 function showTableEdit(table) {
@@ -271,7 +273,13 @@ $(function () {
 		return false;
 	});
 	
-	$('#closeTables').click(function () {
+	$('#saveScreen_done').click(function () {
+		$('#saveScreen').hide();
+		$('#displayRoot').show();
+		return false;
+	});
+	
+	$('#closeTables, #closeTables2').click(function () {
 		if (!confirm('Discard all changes?'))
 			return false;
 		
