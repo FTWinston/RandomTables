@@ -156,6 +156,7 @@ function loadData(url) {
 		listTables();
 		$('#intro').hide();
 		$('#displayRoot').show();
+		$('#shareLink').show();
 	});
 }
 
@@ -276,6 +277,21 @@ $(function () {
 	$('#saveScreen_done').click(function () {
 		$('#saveScreen').hide();
 		$('#displayRoot').show();
+		return false;
+	});
+	
+	$('#shareLink').click(function () {
+		var link = document.location.href;
+		if (link.substr(link.length - 8) != '&display')
+			link += '&display';
+		
+		$('#shareRoot').show();
+		$('#shareRoot_text').val(link).focus().select();
+		return false;
+	});
+	
+	$('#shareRoot_hide').click(function () {
+		$('#shareRoot').hide();
 		return false;
 	});
 	
@@ -487,5 +503,9 @@ $(function () {
 	
 	var queryUrl = getParameterByName('source');
 	if (queryUrl != null)
+	{
+		if (getParameterByName('display') != null)
+			$('#displayRoot').addClass('display');
 		loadData(queryUrl);
+	}
 });

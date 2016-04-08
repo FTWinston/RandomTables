@@ -1,8 +1,12 @@
+a {
+	color: black;
+}
+
 #tableList, #output {
 	font-size: 1.25em;
 }
 
-#tableList > * {
+#tableList > *, #shareRoot {
 	border: solid 1px gray;
 	margin: 0.5em;
 	padding: 1em;
@@ -31,15 +35,17 @@
 	user-select: none;
 }
 
-#displayRoot.display .link, #displayRoot.display #addTable, #displayRoot.display #saveTables, #displayRoot.display #closeTables {
+#displayRoot.display .link, #displayRoot.display #addTable, #displayRoot.display #saveTables, #displayRoot.display #closeTables, #displayRoot.display #shareLink {
 	display: none;
+	position: absolute;
+	top: -200px;
 }
 
 #displayRoot.display #tableList .table {
 	cursor: pointer;
 }
 
-#addTable, #saveTables, #closeTables {
+#displayRoot > a:not(:last-of-type) {
 	margin-right: 1em;
 }
 
@@ -154,4 +160,8 @@
 #saveScreen_text {
 	width: 100%;
 	min-height: 40em;
+}
+
+#shareRoot_text {
+	width: 40em;
 }
